@@ -22,7 +22,7 @@
     line-height: 1.6;
   }
   .wrap {
-    max-width: 640px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 48px 24px 80px;
   }
@@ -40,7 +40,7 @@
   .subtitle {
     color: var(--text-muted);
     margin-bottom: 32px;
-    font-size: 15px;
+    font-size: 14px;
   }
   .card {
     background: var(--surface);
@@ -57,19 +57,22 @@
     color: var(--text-muted);
     font-size: 15px;
   }
-  .card ul {
+  .card ul, .card ol {
     margin: 0;
     padding-left: 20px;
   }
+  .card li { margin-bottom: 8px; }
+  .card li:last-child { margin-bottom: 0; }
+  strong { color: var(--text); }
   .email-box {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     background: rgba(124, 156, 255, 0.08);
     border: 1px solid rgba(124, 156, 255, 0.3);
     border-radius: 10px;
-    padding: 14px 16px;
-    margin-top: 12px;
+    padding: 10px 14px;
+    margin-top: 8px;
   }
   .email-box a {
     color: var(--accent);
@@ -78,34 +81,11 @@
     font-size: 15px;
   }
   .email-box a:hover { text-decoration: underline; }
-  .steps {
-    counter-reset: step;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  a.inline-link {
+    color: var(--accent);
+    text-decoration: none;
   }
-  .steps li {
-    counter-increment: step;
-    position: relative;
-    padding-left: 32px;
-    margin-bottom: 14px;
-  }
-  .steps li::before {
-    content: counter(step);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #0f0f12;
-    font-size: 12px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  a.inline-link:hover { text-decoration: underline; }
   footer {
     margin-top: 40px;
     color: var(--text-muted);
@@ -118,36 +98,44 @@
   <div class="wrap">
     <div class="logo">8Q</div>
     <h1>Видалення облікового запису</h1>
-    <p class="subtitle">Ця сторінка описує, як видалити свій обліковий запис у застосунку 8Q та які дані буде видалено.</p>
+    <p class="subtitle">Додаток «8Q» · розробник NeatApps</p>
 
     <div class="card">
-      <h2>Як подати запит</h2>
-      <ol class="steps">
-        <li>Напишіть листа на електронну адресу нижче з теми поштової скриньки, прив'язаної до вашого акаунта в 8Q.</li>
-        <li>У темі листа вкажіть <strong>«Delete account»</strong>.</li>
-        <li>Ми підтвердимо отримання запиту та видалимо акаунт і пов'язані дані протягом <strong>30 днів</strong>.</li>
+      <h2>Спосіб 1. У Додатку</h2>
+      <ol>
+        <li>Відкрийте Додаток «8Q» і увійдіть в обліковий запис.</li>
+        <li>Перейдіть у <strong>Налаштування</strong>.</li>
+        <li>Натисніть <strong>«Видалити обліковий запис»</strong> і підтвердьте.</li>
       </ol>
+      <p>Дані видаляються одразу.</p>
+    </div>
+
+    <div class="card">
+      <h2>Спосіб 2. Без Додатка</h2>
+      <p>Напишіть з email, прив'язаного до облікового запису, на адресу нижче з темою <strong>«Delete account»</strong>. Ми підтвердимо запит і видалимо дані протягом <strong>30 днів</strong>.</p>
       <div class="email-box">
         ✉️ <a href="mailto:8q@neatapps.co?subject=Delete%20account">8q@neatapps.co</a>
       </div>
     </div>
 
     <div class="card">
-      <h2>Які дані буде видалено</h2>
+      <h2>Що видаляється</h2>
       <ul>
-        <li>Профіль користувача та дані автентифікації</li>
-        <li>Історія пасторських сесій та повідомлень</li>
-        <li>Будь-який пов'язаний контент, збережений у застосунку</li>
+        <li>Обліковий запис (ім'я, email, ідентифікатор).</li>
+        <li>Ситуації, сесії, підсумки та повідомлення в хмарі.</li>
+        <li>Локальні дані на пристрої, з якого ви видаляєте обліковий запис у Додатку.</li>
       </ul>
+      <p>Запрошення, зв'язки з наставниками й підопічними та коригувальні відгуки, які ви надсилали, ми видаляємо на ваш запит листом.</p>
+      <p>Якщо ви видаляєте обліковий запис листом, локальну копію даних на своїх пристроях видаліть самостійно, видаливши Додаток.</p>
     </div>
 
     <div class="card">
-      <h2>Що може зберігатися довше</h2>
-      <p>Деякі дані можуть зберігатися обмежений час після видалення акаунта — виключно для виконання юридичних зобов'язань (наприклад, вимог бухгалтерського чи податкового обліку) або запобігання шахрайству. Такі дані не використовуються повторно і видаляються автоматично після завершення необхідного терміну зберігання.</p>
+      <h2>Детальніше</h2>
+      <p>Як ми обробляємо дані, описано в <a class="inline-link" href="https://neatapps.co/8q/privacy/">Політиці приватності</a>.</p>
     </div>
 
     <footer>
-      © 2026 8Q. Усі права захищено.
+      © 2026 NeatApps. Усі права захищено.
     </footer>
   </div>
 </body>
